@@ -1,0 +1,69 @@
+.Home {
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+
+    .section_1 {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+
+        .cover {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+
+            .image {
+                position: relative;
+                cursor: pointer;
+                width: 200px;
+                height: 200px;
+
+                &:hover {
+                    .opacity {
+                        display: grid;
+                        place-items: center;
+
+                        .circle {
+                            display: grid;
+                            place-items: center;
+                            width: 80px;
+                            height: 80px;
+                            background-color: #bababa;
+                            border-radius: 50%;
+
+                            &:hover {
+                                background-color: rgb(215, 215, 215);
+                            }
+                        }
+                    }
+                }
+
+                img {
+                    width: 200px;
+                    height: 200px;
+                    border-radius: 10px;
+                }
+            }
+
+
+
+            p {
+                color: #bababa;
+            }
+        }
+
+        .opacity {
+            display: none;
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(89, 89, 89, 0.765);
+            border-radius: 10px;
+        }
+    }
+}

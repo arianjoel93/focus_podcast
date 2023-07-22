@@ -1,0 +1,98 @@
+:root {
+    --primary: #336666;
+    --black: #262626;
+    --white: #FFF;
+    --fuente-principal: 'Outfit', sans-serif;
+    --light: #edf1f2;
+    --dark: #222e35;
+
+}
+
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+legend {
+    @media (max-width: 480px) {
+        font-size: 16px !important;
+
+        font-size: 22px !important;
+    }
+
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+
+body {
+    font-size: 16px;
+    font-family: var(--fuente-principal);
+    line-height: 1.5;
+    color: var(--light);
+    background: linear-gradient(to bottom, black, rgb(31, 34, 34)) !important;
+    margin: 0 !important;
+    -webkit-font-smoothing: antialiased;
+    transition: 0.2s ease all;
+    font-family: 'PT Sans', sans-serif;
+
+    p,
+    h1,
+    h3,
+    h4 {
+        margin: 0;
+        font-family: 'PT Sans', sans-serif;
+    }
+
+
+    &::-webkit-scrollbar {
+        width: 10px !important;
+        /* Ancho de la barra */
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: #f1f1f1;
+        /* Color de fondo de la barra */
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #888;
+        border-radius: 40px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.Container {
+    width: min(95%, 144rem) !important;
+    margin: 0px auto !important;
+}
+
+.maxWidth {
+    width: min(95%, 160rem) !important;
+    margin: 0px auto !important;
+}
