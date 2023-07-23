@@ -18,18 +18,23 @@ import podcast2 from "../../assets/mp3/podcast2.mp3"
 import Clips from "../../components/molecules/Clips/Clips";
 import { useStateContext } from "../../context/ContextProvider";
 import Playerr from "../../components/molecules/Player/Player";
+import { useEffect, useState } from "react";
 
 
 
 const Author = () => {
-    const { active } = useStateContext()
+    const { active, pathname, setPathname } = useStateContext()
     const ArrayPodcasts = [
         podcast,
         podcast1,
         podcast2
     ]
+    const [like, setLike] = useState(false)
 
-
+    useEffect(() => {
+        setPathname(window.location.pathname)
+        console.log(pathname, "hola")
+    }, [])
     return (
         <div className='Author'>
             <div className="container Container">
@@ -43,13 +48,21 @@ const Author = () => {
                             <span>Joel Trincado</span>
                         </div>
                         <div className="share">
-                            <div className="follow">
+                            {!like ? (<button className="follow" onClick={() => setLike(!like)}>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                     <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
                                 </svg>
-                                Seguir
-                            </div>
+                                Me gusta
+                            </button>) : (
+                                <button className="follow pink" onClick={() => setLike(!like)}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+                                    </svg>
+                                    Me gusta
+                                </button>
+                            )}
                             <svg xmlns="http://www.w3.org/2000/svg" class="iconShare icon icon-tabler icon-tabler-share" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                 <path d="M6 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
@@ -76,7 +89,7 @@ const Author = () => {
                     )
                 })}
             </div>
-            {active && <Playerr/>}
+            {active && <Playerr />}
         </div>
     )
 }

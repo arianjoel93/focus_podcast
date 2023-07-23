@@ -38,19 +38,19 @@
         gap: 20px;
         align-items: center;
 
-        .playActions {
-            cursor: pointer;
-            background-color: #ffffff3c;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            margin-left: 20px;
+        // .playActions {
+        //     cursor: pointer;
+        //     background-color: #ffffff3c;
+        //     border: none;
+        //     border-radius: 50%;
+        //     width: 50px;
+        //     height: 50px;
+        //     margin-left: 20px;
 
-            &:hover {
-                transform: scale(1.05);
-                transition: transform 0.3s linear;
-            }
-        }
+        //     &:hover {
+        //         transform: scale(1.05);
+        //         transition: transform 0.3s linear;
+        //     }
+        // }
     }
 }

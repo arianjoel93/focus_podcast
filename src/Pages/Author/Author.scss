@@ -83,10 +83,16 @@
                     background: rgba(255, 255, 255, 0.194);
                     font-size: 16px;
                     cursor: pointer;
+                    border: none;
+                    color: white;
 
                     &:hover {
                         background: rgba(255, 255, 255, 0.3);
                     }
+                }
+
+                .pink {
+                    background: linear-gradient(to right, #1f87b4, #589fc5) !important;
                 }
 
                 .iconShare {
@@ -157,5 +163,5 @@
         margin-bottom: 20px;
     }
 
-    
+
 }

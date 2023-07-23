@@ -16,8 +16,10 @@
 
     .controlerTime {
 
-        display: flex;
+        display: none;
         justify-content: end;
+        height: 50px;
+        position: absolute;
 
 
         .content {
@@ -28,17 +30,18 @@
     }
 
     .containerPlayer {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
         height: 100%;
         position: relative;
+        gap: 30px;
 
         .info {
             font-size: 16px;
-            position: absolute;
-            top: 20px;
-            left: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: center;
             max-width: 500px;
             width: 100%;
         }
@@ -46,15 +49,18 @@
         .actionsPlayer {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 20px;
 
             .action {
                 background-color: rgba(255, 255, 255, 0.26);
                 border: none;
-                width: 50px;
-                height: 50px;
+                width: 40px;
+                height: 40px;
                 border-radius: 50%;
                 cursor: pointer;
+                display: grid;
+                place-items: center;
 
                 &:hover {
                     background-color: rgba(255, 255, 255, 0.46);
@@ -64,30 +70,76 @@
 
             .next {
                 transform: rotate(180deg);
+                background-color: transparent !important;
+
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.46) !important;
+                }
+            }
+            .prev{
+                background-color: transparent !important;
+
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.46) !important;
+                }
             }
         }
 
     }
 
-    .p-slider.p-slider-horizontal {
-        height: 2px !important;
-        margin-top: -2px !important;
+    .progress {
+
+        .p-slider.p-slider-horizontal {
+            height: 2px !important;
+            margin-top: -2px !important;
+        }
+
+        .p-slider .p-slider-range {
+            background:  linear-gradient(to right, #037fb4, #c1e2f4) !important;
+        }
+
+        .p-slider .p-slider-handle {
+            height: 1.143rem;
+            width: 1.143rem;
+            background: #ffffff;
+            border: 2px solid white;
+            border-radius: 50%;
+            transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .p-slider {
+            background: gray !important;
+        }
     }
 
-    .p-slider .p-slider-range {
-        background: white !important;
+    .volume {
+
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: end;
+
+
+        .p-slider.p-slider-horizontal {
+            width: 100px !important;
+        }
+
+        .p-slider .p-slider-range {
+            background: linear-gradient(to right, #c1e2f4, #037fb4) !important;
+        }
+
+        .p-slider .p-slider-handle {
+            height: 1.143rem;
+            width: 1.143rem;
+            background: #ffffff;
+            border: 2px solid white;
+            border-radius: 50%;
+            transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .p-slider {
+            background: gray !important;
+        }
     }
 
-    .p-slider .p-slider-handle {
-        height: 1.143rem;
-        width: 1.143rem;
-        background: #ffffff;
-        border: 2px solid white;
-        border-radius: 50%;
-        transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
-    }
-
-    .p-slider {
-        background: gray !important;
-    }
 }

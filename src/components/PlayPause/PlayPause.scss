@@ -1,0 +1,16 @@
+.playActions {
+    cursor: pointer;
+    background-color: #ffffff3c;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    margin-left: 20px;
+    display: grid;
+    place-items: center;
+
+    &:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s linear;
+    }
+}

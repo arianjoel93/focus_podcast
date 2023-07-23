@@ -15,27 +15,19 @@ import 'primeicons/primeicons.css';
 //react
 import { Outlet } from 'react-router-dom'
 import Header from "../Header/Header";
-// import ScrollButton from "../../atoms/ScrollButton/ScrollButton";
-// import { useStateContext } from "../../../context/ContextProvider";
+import { useEffect, useState } from "react";
+import { useStateContext } from "../../../context/ContextProvider";
+
 
 const Layout = () => {
-  
+    const { pathname } = useStateContext()
 
-    // const {
-    //     viewCookies,
-    // } = useStateContext();
     return (
         <div className='Layout'>
-            {/* {!viewCookies &&
-                <Cookies />
-            } */}
             <Header />
-            <main className='containerMain' id="containerMain">
-                {/* <ScrollButton id={"containerMain"} /> */}
-
+            <main className='containerMain' id="containerMain" style={pathname.includes('author') ? { background: 'linear-gradient(to right, rgb(33 43 49), rgb(18 22 24))', } : { background: 'transparent' }}>
                 <Outlet />
             </main>
-            {/* <Footer /> */}
         </div>
     )
 }

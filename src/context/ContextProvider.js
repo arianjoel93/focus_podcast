@@ -8,8 +8,10 @@ export const ContextProvider = ({ children }) => {
   const [podcastPlaying, setPodcastPlaying] = useState()
   const [ind, setInd] = useState()
   const [control, setControl] = useState(false)
-
-
+  const [playPause, setPlayPause] = useState(false)
+const [backgroundImage, setBackgroundImage] = useState()
+  const [pathname, setPathname] = useState('')
+  
 
   return (
     // eslint-disable-next-line react/jsx-no-constructed-context-values
@@ -22,7 +24,13 @@ export const ContextProvider = ({ children }) => {
         podcastPlaying,
         setPodcastPlaying,
         setControl,
-        control
+        control,
+        setPlayPause,
+        playPause,
+        pathname,
+        setPathname,
+        setBackgroundImage,
+        backgroundImage
 
 
       }}
