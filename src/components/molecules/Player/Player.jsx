@@ -6,7 +6,7 @@ import { useStateContext } from "../../../context/ContextProvider";
 
 const Player = () => {
 
-    const { podcastPlaying, active } = useStateContext()
+    const { podcastPlaying, control } = useStateContext()
     const soundRef = useRef(null);
     const [durationTime, setDurationTime] = useState(0)
     const [second, setSecond] = useState()
@@ -19,6 +19,7 @@ const Player = () => {
 
     useEffect(() => {
         if (podcastPlaying) {
+            setPlayer("")
             const sound = new Howl({
                 src: [podcastPlaying],
                 html5: true,
@@ -28,6 +29,8 @@ const Player = () => {
                 onloaderror: (id, error) => console.error('Error al cargar el audio:', error),
                 onplayerror: (id, error) => console.error('Error al reproducir el audio:', error),
                 onload: () => {
+                    sound.play()
+                    setProgress(0)
                     var duration = sound.duration()
                     setDurationTime(duration)
                     setMinutes(Math.floor(duration / 60))
@@ -35,7 +38,6 @@ const Player = () => {
                 }
             });
             setPlayer(sound);
-
             soundRef.current = sound;
 
             return () => {
@@ -44,6 +46,7 @@ const Player = () => {
         }
 
     }, [podcastPlaying]);
+
 
     useEffect(() => {
         let _val = progress;
@@ -96,11 +99,14 @@ const Player = () => {
     };
 
     useEffect(() => {
-        if (podcastPlaying) {
-            togglePlay()
-
+        if (player) {
+            if (isPlaying) {
+                player.pause();
+            } else {
+                player.play();
+            }
         }
-    }, [podcastPlaying])
+    }, [control])
 
     return (
 

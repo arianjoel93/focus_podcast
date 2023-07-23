@@ -11,20 +11,22 @@ import replay from "../../assets/icons/replay15.png"
 //audio
 import podcast from "../../assets/mp3/podcast.mp3"
 import podcast1 from "../../assets/mp3/podcast1.mp3"
+import podcast2 from "../../assets/mp3/podcast2.mp3"
 
 
 //react
 import Clips from "../../components/molecules/Clips/Clips";
-import Player from "../../components/molecules/Player/Player";
 import { useStateContext } from "../../context/ContextProvider";
+import Playerr from "../../components/molecules/Player/Player";
 
 
 
 const Author = () => {
-    const {active} = useStateContext()
+    const { active } = useStateContext()
     const ArrayPodcasts = [
         podcast,
-        podcast1
+        podcast1,
+        podcast2
     ]
 
 
@@ -70,11 +72,11 @@ const Author = () => {
                 </div>
                 {ArrayPodcasts.map((podcast, index) => {
                     return (
-                        <Clips podcast={podcast} cover={givone} index={index} />
+                        <Clips array={ArrayPodcasts} podcast={podcast} cover={givone} index={index} />
                     )
                 })}
             </div>
-            {active && <Player/>}
+            {active && <Playerr/>}
         </div>
     )
 }
