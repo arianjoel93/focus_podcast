@@ -15,7 +15,6 @@ import 'primeicons/primeicons.css';
 //react
 import { Outlet } from 'react-router-dom'
 import Header from "../Header/Header";
-import { useEffect, useState } from "react";
 import { useStateContext } from "../../../context/ContextProvider";
 
 
