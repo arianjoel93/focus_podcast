@@ -17,23 +17,43 @@ import podcast2 from "../../assets/mp3/podcast2.mp3"
 //react
 import Clips from "../../components/molecules/Clips/Clips";
 import { useStateContext } from "../../context/ContextProvider";
-import Playerr from "../../components/molecules/Player/Player";
 import { useEffect, useState } from "react";
+import AudioPlayer from "../../components/organisms/Player/Player";
+import styled from 'styled-components';
 
+const AppWrapper = styled.div`
+  text-align: center;
+`;
+
+const PlayPauseButton = styled.button`
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  margin: 0 10px;
+`;
+
+const TimeSlider = styled.input`
+  width: 100%;
+`;
 
 
 const Author = () => {
-    const { active, pathname, setPathname } = useStateContext()
+    const { active, pathname, setPathname, podcastPlaying } = useStateContext()
     const ArrayPodcasts = [
         podcast,
         podcast1,
         podcast2
     ]
     const [like, setLike] = useState(false)
+    const [isPlaying, setIsPlaying] = useState(false);
+
+    const handlePlayPause = () => {
+        setIsPlaying(!isPlaying);
+    };
 
     useEffect(() => {
         setPathname(window.location.pathname)
-        console.log(pathname, "hola")
     }, [])
     return (
         <div className='Author'>
@@ -88,8 +108,8 @@ const Author = () => {
                         <Clips array={ArrayPodcasts} podcast={podcast} cover={givone} index={index} />
                     )
                 })}
+                {active && <AudioPlayer  title={"Mi canción"} audioUrl={podcastPlaying} />}
             </div>
-            {active && <Playerr />}
         </div>
     )
 }

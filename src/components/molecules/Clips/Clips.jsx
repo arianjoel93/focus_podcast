@@ -1,40 +1,38 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Clips.scss"
-import { Howl } from 'howler';
-import { useStateContext } from "../../../context/ContextProvider";
 import PlayPause from "../../PlayPause/PlayPause";
 
 
 const Clips = (
     { cover, podcast, index }
 ) => {
-    const { setActive, control, setControl, setPodcastPlaying, active } = useStateContext()
     const [second, setSecond] = useState()
     const [minutes, setMinutes] = useState(0)
+    const [duration, setDuration] = useState(0);
+
+    const audioRef = React.createRef();
 
 
     useEffect(() => {
-        const sound = new Howl({
-            src: [podcast],
-            html5: true,
-            onload: () => {
-                var duration = sound.duration()
-                setMinutes(Math.floor(duration / 60))
-                setSecond(Math.floor(duration % 60))
-            }
+        const audioElement = audioRef.current;
+        audioElement.addEventListener('loadedmetadata', () => {
+            setDuration(audioElement.duration);
         });
-
-
+        return () => {
+            audioElement.removeEventListener('loadedmetadata', () => {
+                setDuration(audioElement.duration);
+            });
+        };
     }, []);
 
-    const handleClick = () => {
-        setActive(true)
-        setPodcastPlaying(podcast)
-        setControl(!control)
-    }
+    useEffect(() => {
+        setMinutes(Math.floor(duration / 60))
+        setSecond(Math.floor(duration % 60))
+    }, [duration])
 
     return (
         <>
+            <audio ref={audioRef} src={podcast}></audio>
             <div className="clips">
                 <div className="coverClips" >
                     <img src={cover} />
@@ -49,8 +47,9 @@ const Clips = (
                         lacus, ut auctor odio justo id massa.</p>
                 </div>
                 <div className="actions">
-                    <PlayPause podcast={podcast} index={index}/>
+                    <PlayPause podcast={podcast} index={index} />
                     {minutes == 0 ? <p>{second} seg</p> : <p>{minutes} min</p>}
+
                 </div>
             </div>
         </>
