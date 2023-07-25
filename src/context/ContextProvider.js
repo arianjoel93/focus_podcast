@@ -13,6 +13,7 @@ export const ContextProvider = ({ children }) => {
   const [backgroundImage, setBackgroundImage] = useState()
   const [pathname, setPathname] = useState('')
   const [audioState, setAudioState] = useState({});
+  const [time, setTime] = useState(0)
 
   const setAudioPlayingById = (audioUrl, isPlaying) => {
     setAudioState((prevState) => ({
@@ -41,7 +42,9 @@ export const ContextProvider = ({ children }) => {
         setIsPlaying,
         isPlaying,
         audioState,
-        setAudioPlayingById
+        setAudioPlayingById,
+        setTime,
+        time
 
 
       }}

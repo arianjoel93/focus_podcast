@@ -1,16 +1,41 @@
-.playActions {
-    cursor: pointer;
-    background-color: #ffffff3c;
-    border: none;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    margin-left: 20px;
-    display: grid;
-    place-items: center;
+.btnControl {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 50px;
 
-    &:hover {
-        transform: scale(1.05);
-        transition: transform 0.3s linear;
+
+    .svgCircle {
+        position: absolute;
+        top: -24px;
+        left: 12px;
+
+        .circle-background {
+            fill: none;
+            stroke: antiquewhite;
+        }
+        .circle-progress{
+            fill: none;
+            stroke: #488198;
+        }
+    }
+
+    .playActions {
+        cursor: pointer;
+        background-color: #ffffff3c;
+        border: none;
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        margin-left: 20px;
+        display: grid;
+        place-items: center;
+        position: absolute;
+        z-index: 9;
+
+        // &:hover {
+        //     transform: scale(1.05);
+        //     transition: transform 0.3s linear;
+        // }
     }
 }

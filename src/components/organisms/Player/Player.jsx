@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay, faPause, faVolumeUp, faVolumeDown, faStepBackward, faStepForward } from '@fortawesome/free-solid-svg-icons';
+import { faPlay, faPause, faVolumeUp, faVolumeDown, faStepBackward, faStepForward, faVolumeMute } from '@fortawesome/free-solid-svg-icons';
 import { useStateContext } from '../../../context/ContextProvider';
 
 const AudioPlayerWrapper = styled.div`
-  background-color: #f0f0f0;
-  padding: 10px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+background: linear-gradient(to top, #242424, #484747);
+padding: 10px 100px;
+border-radius: 0px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+position: fixed;
+bottom: 0;
+left: 0;
+width: 100%;
+height: 80px;
+    z-index: 999;
 `;
 
 const AudioControls = styled.div`
@@ -19,11 +25,14 @@ const AudioControls = styled.div`
 `;
 
 const PlayPauseButton = styled.button`
-  background-color: transparent;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  margin: 0 10px;
+background-color: #ffffffbd;
+border: none;
+font-size: 24px;
+cursor: pointer;
+margin: 0 10px;
+width: 50px;
+height: 50px;
+border-radius: 50%;
 `;
 
 const VolumeControl = styled.div`
@@ -33,6 +42,7 @@ const VolumeControl = styled.div`
 
 const VolumeIcon = styled(FontAwesomeIcon)`
   font-size: 18px;
+  width:30px;
 `;
 
 const VolumeSlider = styled.input`
@@ -40,7 +50,7 @@ const VolumeSlider = styled.input`
   width: 100px;
   height: 4px;
   border-radius: 2px;
-  background-color: #ccc;
+  background: linear-gradient(45deg, #67acc9, #1b5167);
   outline: none;
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
@@ -48,31 +58,35 @@ const VolumeSlider = styled.input`
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: #444;
+    background-color: #ccc;
     cursor: pointer;
   }
 `;
 
 const AudioTimeSlider = styled.input`
-  -webkit-appearance: none;
-  width: 100px;
-  height: 4px;
-  border-radius: 2px;
-  background-color: #ccc;
-  outline: none;
+-webkit-appearance: none;
+/* width: 100px; */
+height: 4px;
+border-radius: 2px;
+background: linear-gradient(45deg, #67acc9, #1b5167);
+// outline: none;
+position: absolute;
+width: 100%;
+top: -2px;
+left: 0;
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
-    appearance: none;
+    // appearance: none;
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: #444;
+    background-color: #ccc;
     cursor: pointer;
   }
 `;
 
 const AudioPlayer = ({ audioUrl, title }) => {
-    const { audioState, setAudioPlayingById } = useStateContext();
+    const { audioState, setAudioPlayingById, setTime } = useStateContext();
     const [volume, setVolume] = useState(0.5);
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
@@ -138,11 +152,25 @@ const AudioPlayer = ({ audioUrl, title }) => {
     const handleNextTrack = () => {
         // Implement your logic to switch to the next track here
     };
+    const [volSave, setVolSave] = useState(0)
+    const handleVolume = async () => {
+        await setVolSave(volume);
+        if (volume !== 0) {
+            setVolume(0)
+        } else {
+            setVolume(volSave)
+        }
+    }
+
+    useEffect(() => {
+        if (currentTime / duration !== NaN)
+            setTime(100 * currentTime / duration)
+    }, [currentTime])
 
     return (
         <AudioPlayerWrapper>
             <audio ref={audioRef} src={audioUrl}></audio>
-            <h3 style={{ color: 'black' }}>{title}</h3>
+            <h3 style={{ color: '#ccc' }}>{title}</h3>
             <AudioControls>
                 <PlayPauseButton onClick={handlePreviousTrack}>
                     <FontAwesomeIcon icon={faStepBackward} />
@@ -162,9 +190,8 @@ const AudioPlayer = ({ audioUrl, title }) => {
                 />
             </AudioControls>
             <VolumeControl>
-                <VolumeIcon icon={faVolumeDown} />
+                <VolumeIcon icon={volume == 0 ? faVolumeMute : volume < 0.5 ? faVolumeDown : faVolumeUp} onClick={() => handleVolume()} />
                 <VolumeSlider type="range" min="0" max="1" step="0.01" value={volume} onChange={handleVolumeChange} />
-                <VolumeIcon icon={faVolumeUp} />
             </VolumeControl>
         </AudioPlayerWrapper>
     );
