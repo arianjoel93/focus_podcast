@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay, faPause, faVolumeUp, faVolumeDown, faStepBackward, faStepForward, faVolumeMute } from '@fortawesome/free-solid-svg-icons';
+import { faPlay, faPause, faVolumeUp, faVolumeDown, faVolumeMute, faUndo, faRedo } from '@fortawesome/free-solid-svg-icons';
 import { useStateContext } from '../../../context/ContextProvider';
 
 const AudioPlayerWrapper = styled.div`
@@ -87,6 +87,7 @@ left: 0;
 
 const AudioPlayer = ({ audioUrl, title }) => {
     const { audioState, setAudioPlayingById, setTime } = useStateContext();
+    const [volSave, setVolSave] = useState(0)
     const [volume, setVolume] = useState(0.5);
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
@@ -146,13 +147,13 @@ const AudioPlayer = ({ audioUrl, title }) => {
     };
 
     const handlePreviousTrack = () => {
-        // Implement your logic to switch to the previous track here
+        audioRef.current.currentTime = currentTime - 15
     };
 
     const handleNextTrack = () => {
-        // Implement your logic to switch to the next track here
+        audioRef.current.currentTime = currentTime + 15
     };
-    const [volSave, setVolSave] = useState(0)
+
     const handleVolume = async () => {
         await setVolSave(volume);
         if (volume !== 0) {
@@ -173,13 +174,13 @@ const AudioPlayer = ({ audioUrl, title }) => {
             <h3 style={{ color: '#ccc' }}>{title}</h3>
             <AudioControls>
                 <PlayPauseButton onClick={handlePreviousTrack}>
-                    <FontAwesomeIcon icon={faStepBackward} />
+                    <FontAwesomeIcon icon={faUndo} />
                 </PlayPauseButton>
                 <PlayPauseButton onClick={handlePlayPause}>
                     {audioState[audioUrl]?.isPlaying ? <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay} />}
                 </PlayPauseButton>
                 <PlayPauseButton onClick={handleNextTrack}>
-                    <FontAwesomeIcon icon={faStepForward} />
+                    <FontAwesomeIcon icon={faRedo} />
                 </PlayPauseButton>
                 <AudioTimeSlider
                     type="range"

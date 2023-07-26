@@ -5,13 +5,12 @@ import "./PlayPause.scss"
 const PlayPause = ({ podcast, index }) => {
     const { setActive, setPodcastPlaying, audioState, setAudioPlayingById, time } = useStateContext()
     const dashArray = 75 * Math.PI * 2
-    const dashOffSet= dashArray - (dashArray * time)/100
+    const dashOffSet = dashArray - (dashArray * time) / 100
 
     const handleClick = (index) => {
         setActive(true)
         setPodcastPlaying(podcast)
         // setAudioPlayingById(podcast, !audioState[podcast]?.isPlaying);
-
 
         const currentAudioState = audioState[podcast]?.isPlaying;
         // Pausar el audio actualmente en reproducción (si lo hay)
@@ -28,10 +27,10 @@ const PlayPause = ({ podcast, index }) => {
 
     return (
         <div className="btnControl">
-            {audioState[podcast]?.isPlaying &&
-                <svg width={50} height={50} viewBox="0 0 200 200" className="svgCircle">
+            {audioState[podcast] &&
+                <svg id={"btnControl"} width={50} height={50} viewBox="0 0 200 200" className="svgCircle">
                     <circle cx={200 / 2} cy={200 / 2} strokeWidth={"15px"} r={75} className="circle-background"></circle>
-                    <circle cx={200 / 2} cy={200 / 2} strokeWidth={"20px"} r={75} className="circle-progress"  style={{strokeDasharray:dashArray, strokeDashoffset:dashOffSet}} transform={'rotate(-90 100 100)'}></circle>
+                    <circle cx={200 / 2} cy={200 / 2} strokeWidth={"20px"} r={75} className="circle-progress" style={{ strokeDasharray: dashArray, strokeDashoffset: dashOffSet }} transform={'rotate(-90 100 100)'}></circle>
                 </svg>
             }
 

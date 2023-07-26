@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Clips.scss"
 import PlayPause from "../../PlayPause/PlayPause";
-import ProgressBar from "./ProgressBar/ProgressBar";
 
 
 const Clips = (
