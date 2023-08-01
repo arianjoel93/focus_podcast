@@ -1,3 +1,5 @@
+import "./Player.scss"
+
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -92,6 +94,7 @@ const AudioPlayer = ({ audioUrl, title }) => {
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
     const audioRef = React.createRef();
+    const screen = window.screen.width;
 
     useEffect(() => {
         if (audioState[audioUrl]?.isPlaying) {
@@ -169,32 +172,53 @@ const AudioPlayer = ({ audioUrl, title }) => {
     }, [currentTime])
 
     return (
-        <AudioPlayerWrapper>
-            <audio ref={audioRef} src={audioUrl}></audio>
-            <h3 style={{ color: '#ccc' }}>{title}</h3>
-            <AudioControls>
-                <PlayPauseButton onClick={handlePreviousTrack}>
-                    <FontAwesomeIcon icon={faUndo} />
-                </PlayPauseButton>
-                <PlayPauseButton onClick={handlePlayPause}>
-                    {audioState[audioUrl]?.isPlaying ? <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay} />}
-                </PlayPauseButton>
-                <PlayPauseButton onClick={handleNextTrack}>
-                    <FontAwesomeIcon icon={faRedo} />
-                </PlayPauseButton>
-                <AudioTimeSlider
-                    type="range"
-                    min={0}
-                    max={duration}
-                    value={currentTime}
-                    onChange={handleTimeChange}
-                />
-            </AudioControls>
-            <VolumeControl>
-                <VolumeIcon icon={volume == 0 ? faVolumeMute : volume < 0.5 ? faVolumeDown : faVolumeUp} onClick={() => handleVolume()} />
-                <VolumeSlider type="range" min="0" max="1" step="0.01" value={volume} onChange={handleVolumeChange} />
-            </VolumeControl>
-        </AudioPlayerWrapper>
+        <>
+            {screen > 768 ? (
+                <AudioPlayerWrapper>
+                    <audio ref={audioRef} src={audioUrl}></audio>
+                    <h3 style={{ color: '#ccc' }}>{title}</h3>
+                    <AudioControls>
+                        <PlayPauseButton onClick={handlePreviousTrack}>
+                            <FontAwesomeIcon icon={faUndo} />
+                        </PlayPauseButton>
+                        <PlayPauseButton onClick={handlePlayPause}>
+                            {audioState[audioUrl]?.isPlaying ? <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay} />}
+                        </PlayPauseButton>
+                        <PlayPauseButton onClick={handleNextTrack}>
+                            <FontAwesomeIcon icon={faRedo} />
+                        </PlayPauseButton>
+                        <AudioTimeSlider
+                            type="range"
+                            min={0}
+                            max={duration}
+                            value={currentTime}
+                            onChange={handleTimeChange}
+                        />
+                    </AudioControls>
+                    <VolumeControl>
+                        <VolumeIcon icon={volume == 0 ? faVolumeMute : volume < 0.5 ? faVolumeDown : faVolumeUp} onClick={() => handleVolume()} />
+                        <VolumeSlider type="range" min="0" max="1" step="0.01" value={volume} onChange={handleVolumeChange} />
+                    </VolumeControl>
+                </AudioPlayerWrapper>
+            ) : (
+                <AudioPlayerWrapper>
+                    <audio ref={audioRef} src={audioUrl}></audio>
+                    <h3 style={{ color: '#ccc' }}>{title}</h3>
+                    <AudioControls>
+                        <PlayPauseButton onClick={handlePlayPause}>
+                            {audioState[audioUrl]?.isPlaying ? <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay} />}
+                        </PlayPauseButton>
+                        <AudioTimeSlider
+                            type="range"
+                            min={0}
+                            max={duration}
+                            value={currentTime}
+                            onChange={handleTimeChange}
+                        />
+                    </AudioControls>
+                </AudioPlayerWrapper>
+            )}
+        </>
     );
 };
 

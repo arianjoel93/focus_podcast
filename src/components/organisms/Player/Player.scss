@@ -72,4 +72,11 @@
         color: white;
         font-weight: bold;
     }
+
+}
+
+.dlDQnt {
+    @media (max-width: 768px) {
+        padding: 10px !important;
+    }
 }

@@ -9,8 +9,8 @@ import { useEffect } from "react"
 
 const Home = () => {
 
-
-    const { pathname, setPathname, setBackgroundImage } = useStateContext()
+    const screen = window.screen.width
+    const { setPathname, setBackgroundImage } = useStateContext()
     useEffect(() => {
         setPathname(window.location.pathname)
     }, [])
@@ -28,17 +28,23 @@ const Home = () => {
                 </div>
                 <div className="list">
                     <div className="cover">
-                        <div className="image">
-                            <div className="opacity">
-                                <Link to={'/author/1'} className="circle" onClick={() => handleClick()}>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <path d="M9 6l6 6l-6 6" />
-                                    </svg>
-                                </Link>
+                        {screen > 768 ? (
+                            <div className="image">
+                                <div className="opacity">
+                                    <Link to={'/author/1'} className="circle" onClick={() => handleClick()}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <path d="M9 6l6 6l-6 6" />
+                                        </svg>
+                                    </Link>
+                                </div>
+                                <img src={givone} />
                             </div>
-                            <img src={givone} />
-                        </div>
+                        ) : (
+                            <Link className="image" to={'/author/1'}>
+                                <img src={givone} />
+                            </Link>
+                        )}
                         <p>Dr. Givone</p>
                     </div>
                     <div className="cover">
