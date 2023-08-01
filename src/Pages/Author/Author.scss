@@ -50,6 +50,7 @@
     .container {
         @media (max-width: 768px) {
             padding: 10px 0 30px 0;
+            margin-bottom: 100px !important;
         }
 
         display: flex;
