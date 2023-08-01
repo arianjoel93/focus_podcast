@@ -2,7 +2,7 @@
 import "./HeaderMobile.scss"
 
 //assets
-import logo from "../../../assets/logo/bp3.png"
+import logo from "../../../assets/logo/bp2.png"
 import user from "../../../assets/icons/user.png"
 
 //react
