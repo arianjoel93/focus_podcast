@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useStateContext } from "../../context/ContextProvider"
+import { useStateContext } from "../../../context/ContextProvider"
 import "./PlayPause.scss"
 
 const PlayPause = ({ podcast, index }) => {
@@ -27,12 +27,12 @@ const PlayPause = ({ podcast, index }) => {
 
     return (
         <div className="btnControl">
-            {audioState[podcast] &&
+            {/* {audioState[podcast] &&
                 <svg id={"btnControl"} width={50} height={50} viewBox="0 0 200 200" className="svgCircle">
                     <circle cx={200 / 2} cy={200 / 2} strokeWidth={"15px"} r={75} className="circle-background"></circle>
                     <circle cx={200 / 2} cy={200 / 2} strokeWidth={"20px"} r={75} className="circle-progress" style={{ strokeDasharray: dashArray, strokeDashoffset: dashOffSet }} transform={'rotate(-90 100 100)'}></circle>
                 </svg>
-            }
+            } */}
 
             <button className="playActions" onClick={() => handleClick(index)} id={"playActions"}>
                 {audioState[podcast]?.isPlaying ? <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-player-pause" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">

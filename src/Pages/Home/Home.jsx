@@ -17,28 +17,161 @@ const Home = () => {
 
     const handleClick = () => {
         setBackgroundImage(givone)
-        console.log("aqui ando")
     }
 
     return (
         <div className="Home Container">
             <section className="section_1">
-                <div className="cover">
-                    <h1>Los Podcasts más populares</h1>
-                    <div className="image">
-                        <div className="opacity">
-                            <Link to={'/author/1'} className="circle" onClick={() => handleClick()}>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                    <path d="M9 6l6 6l-6 6" />
-                                </svg>
-                            </Link>
+                <div className="title">
+                    <h1>Originales de FocusPodcasts</h1>
+                    <button className="seeMore">Ver más</button>
+                </div>
+                <div className="list">
+                    <div className="cover">
+                        <div className="image">
+                            <div className="opacity">
+                                <Link to={'/author/1'} className="circle" onClick={() => handleClick()}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M9 6l6 6l-6 6" />
+                                    </svg>
+                                </Link>
+                            </div>
+                            <img src={givone} />
                         </div>
-                        <img src={givone} />
+                        <p>Dr. Givone</p>
                     </div>
-                    <p>Dr. Givone</p>
+                    <div className="cover">
+                        <div className="image">
+                            <div className="opacity">
+                                <Link to={'/author/1'} className="circle" onClick={() => handleClick()}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M9 6l6 6l-6 6" />
+                                    </svg>
+                                </Link>
+                            </div>
+                            <img src={givone} />
+                        </div>
+                        <p>Dr. Givone</p>
+                    </div>
+                    <div className="cover">
+                        <div className="image">
+                            <div className="opacity">
+                                <Link to={'/author/1'} className="circle" onClick={() => handleClick()}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M9 6l6 6l-6 6" />
+                                    </svg>
+                                </Link>
+                            </div>
+                            <img src={givone} />
+                        </div>
+                        <p>Dr. Givone</p>
+                    </div>
                 </div>
             </section>
+            <section className="section_1">
+                <div className="title">
+                    <h1>Los podcasts más populares</h1>
+                    <button className="seeMore">Ver más</button>
+                </div>
+                <div className="list">
+                    <div className="cover">
+                        <div className="image">
+                            <div className="opacity">
+                                <Link to={'/author/1'} className="circle" onClick={() => handleClick()}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M9 6l6 6l-6 6" />
+                                    </svg>
+                                </Link>
+                            </div>
+                            <img src={givone} />
+                        </div>
+                        <p>Dr. Givone</p>
+                    </div>
+                    <div className="cover">
+                        <div className="image">
+                            <div className="opacity">
+                                <Link to={'/author/1'} className="circle" onClick={() => handleClick()}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M9 6l6 6l-6 6" />
+                                    </svg>
+                                </Link>
+                            </div>
+                            <img src={givone} />
+                        </div>
+                        <p>Dr. Givone</p>
+                    </div>
+                    <div className="cover">
+                        <div className="image">
+                            <div className="opacity">
+                                <Link to={'/author/1'} className="circle" onClick={() => handleClick()}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M9 6l6 6l-6 6" />
+                                    </svg>
+                                </Link>
+                            </div>
+                            <img src={givone} />
+                        </div>
+                        <p>Dr. Givone</p>
+                    </div>
+                </div>
+            </section>
+            <section className="section_1">
+                <div className="title">
+                    <h1>Más populares de ciencias exactas</h1>
+                    <button className="seeMore">Ver más</button>
+                </div>
+                <div className="list">
+                    <div className="cover">
+                        <div className="image">
+                            <div className="opacity">
+                                <Link to={'/author/1'} className="circle" onClick={() => handleClick()}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M9 6l6 6l-6 6" />
+                                    </svg>
+                                </Link>
+                            </div>
+                            <img src={givone} />
+                        </div>
+                        <p>Dr. Givone</p>
+                    </div>
+                    <div className="cover">
+                        <div className="image">
+                            <div className="opacity">
+                                <Link to={'/author/1'} className="circle" onClick={() => handleClick()}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M9 6l6 6l-6 6" />
+                                    </svg>
+                                </Link>
+                            </div>
+                            <img src={givone} />
+                        </div>
+                        <p>Dr. Givone</p>
+                    </div>
+                    <div className="cover">
+                        <div className="image">
+                            <div className="opacity">
+                                <Link to={'/author/1'} className="circle" onClick={() => handleClick()}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M9 6l6 6l-6 6" />
+                                    </svg>
+                                </Link>
+                            </div>
+                            <img src={givone} />
+                        </div>
+                        <p>Dr. Givone</p>
+                    </div>
+                </div>
+            </section>
+
         </div>
     )
 }

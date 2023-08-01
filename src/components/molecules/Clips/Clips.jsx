@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Clips.scss"
-import PlayPause from "../../PlayPause/PlayPause";
+import PlayPause from "../PlayPause/PlayPause";
 
 
 const Clips = (

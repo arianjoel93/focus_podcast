@@ -1,4 +1,9 @@
 .Home {
+    @media (max-width: 768px) {
+        align-items: center;
+        gap: 50px;
+    }
+
     padding: 50px 0;
     display: flex;
     flex-direction: column;
@@ -16,6 +21,11 @@
 
 
             .image {
+                @media (max-width: 768px) {
+                    width: 100px;
+                    height: 100px;
+                }
+
                 position: relative;
                 cursor: pointer;
                 width: 200px;
@@ -27,6 +37,11 @@
                         place-items: center;
 
                         .circle {
+                            @media (max-width: 768px) {
+                                width: 30px;
+                                height: 30px;
+                            }
+
                             display: grid;
                             place-items: center;
                             width: 40px;
@@ -42,6 +57,11 @@
                 }
 
                 img {
+                    @media (max-width: 768px) {
+                        width: 100px;
+                        height: 100px;
+                    }
+
                     width: 200px;
                     height: 200px;
                     border-radius: 10px;
@@ -49,21 +69,64 @@
             }
 
 
-
             p {
                 color: #bababa;
             }
         }
 
+        .list {
+            @media (max-width: 768px) {
+                gap: 15px;
+                justify-content: center;
+            }
+
+            display: flex;
+            width: 100%;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: left;
+        }
+
         .opacity {
+            @media (max-width: 768px) {
+                width: 100px;
+                height: 100px;
+            }
+
             display: none;
             width: 200px;
             height: 200px;
             position: absolute;
             top: 0;
             left: 0;
-            background-color: rgba(89, 89, 89, 0.765);
+            background-color: rgba(255, 255, 255, 0.276);
             border-radius: 10px;
+        }
+
+        .title{
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            width: 100%;
+            align-items: center;
+
+            h1{
+                @media (max-width: 768px) {
+                    font-size: 16px;
+                }
+            }
+
+            .seeMore{
+                width: 100px;
+                height: 30px;
+                background: #bababab0;
+                border-radius: 50px;
+                border: none;
+                text-transform: uppercase;
+                color: white;
+                font-size: 11px;
+                font-weight: 700;
+            }
         }
     }
 }

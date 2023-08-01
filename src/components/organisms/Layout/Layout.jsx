@@ -24,7 +24,7 @@ const Layout = () => {
     return (
         <div className='Layout'>
             <Header />
-            <main className='containerMain' id="containerMain" style={pathname.includes('author') ? { background: 'linear-gradient(to right, rgb(33 43 49), rgb(18 22 24))', } : { background: 'transparent' }}>
+            <main className='containerMain Container' id="containerMain" style={pathname.includes('author') ? { background: 'linear-gradient(to right, rgb(33 43 49), rgb(18 22 24))', } : { background: 'transparent' }}>
                 <Outlet />
             </main>
         </div>
