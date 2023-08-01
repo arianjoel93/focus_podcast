@@ -14,7 +14,8 @@
             fill: none;
             stroke: antiquewhite;
         }
-        .circle-progress{
+
+        .circle-progress {
             fill: none;
             stroke: #488198;
         }
@@ -32,6 +33,7 @@
         place-items: center;
         position: absolute;
         z-index: 9;
+        box-shadow: 0 2px 5px 0px #3e3e3e9e;
 
         // &:hover {
         //     transform: scale(1.05);

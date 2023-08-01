@@ -11,6 +11,7 @@ const Clips = (
     const [duration, setDuration] = useState(0);
 
     const audioRef = React.createRef();
+    const screen = window.screen.width
 
 
     useEffect(() => {
@@ -33,25 +34,52 @@ const Clips = (
     return (
         <>
             <audio ref={audioRef} src={podcast}></audio>
-            <div className="clips">
-                <div className="coverClips" >
-                    <img src={cover} />
-                </div>
-                <div className="infoClips">
-                    <strong>11-01-2023</strong>
-                    <h3>Procesos de mesoescala en el Golfo de California</h3>
-                    <p>In sed malesuada metus.
-                        Nulla facilisi. In venenatis aliquet magna, non ultricies nibh
-                        pellentesque at.Curabitur volutpat ante eros, id scelerisque quam cursus at.
-                        Proin consequat, nibh ac commodo eleifend, dolor risus egestas
-                        lacus, ut auctor odio justo id massa.</p>
-                </div>
-                <div className="actions">
-                    <PlayPause podcast={podcast} index={index} />
-                    {minutes == 0 ? <p>{second} seg</p> : <p>{minutes} min</p>}
+            {screen > 768 ? (
+                <>
+                    <div className="clips">
+                        <div className="coverClips" >
+                            <img src={cover} />
+                        </div>
+                        <div className="infoClips">
+                            <strong>11-01-2023</strong>
+                            <h3>Procesos de mesoescala en el Golfo de California</h3>
+                            <p>In sed malesuada metus.
+                                Nulla facilisi. In venenatis aliquet magna, non ultricies nibh
+                                pellentesque at.Curabitur volutpat ante eros, id scelerisque quam cursus at.
+                                Proin consequat, nibh ac commodo eleifend, dolor risus egestas
+                                lacus, ut auctor odio justo id massa.</p>
+                        </div>
+                        <div className="actions">
+                            <PlayPause podcast={podcast} index={index} />
+                            {minutes == 0 ? <p>{second} seg</p> : <p>{minutes} min</p>}
 
-                </div>
-            </div>
+                        </div>
+                    </div>
+                </>
+            ) : (
+                <>
+                    <div className="clipsMobile">
+                        <div className="coverClips" >
+                            <img src={cover} />
+                        </div>
+                        <div className="infoClipsMobile">
+                            <strong>11-01-2023</strong>
+                            <h5>Procesos de mesoescala en el Golfo de California</h5>
+                            <p>In sed malesuada metus.
+                                Nulla facilisi. In venenatis aliquet magna, non ultricies nibh
+                                pellentesque at.Curabitur volutpat ante eros, id scelerisque quam cursus at.
+                                Proin consequat, nibh ac commodo eleifend, dolor risus egestas
+                                lacus, ut auctor odio justo id massa.</p>
+                            <div className="actionsMobile">
+                                <PlayPause podcast={podcast} index={index} />
+                                {minutes == 0 ? <p>{second} seg</p> : <p>{minutes} min</p>}
+
+                            </div>
+                        </div>
+                    </div>
+                </>
+            )
+            }
         </>
     )
 }

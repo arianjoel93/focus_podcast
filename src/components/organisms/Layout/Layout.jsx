@@ -22,9 +22,9 @@ const Layout = () => {
     const { pathname } = useStateContext()
 
     return (
-        <div className='Layout'>
+        <div className='Layout' style={pathname.includes('author') ? { background: 'linear-gradient(to right, rgb(33 43 49), rgb(18 22 24))', } : { background: 'transparent' }}>
             <Header />
-            <main className='containerMain Container' id="containerMain" style={pathname.includes('author') ? { background: 'linear-gradient(to right, rgb(33 43 49), rgb(18 22 24))', } : { background: 'transparent' }}>
+            <main className='containerMain Container' id="containerMain">
                 <Outlet />
             </main>
         </div>
