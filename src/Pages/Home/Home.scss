@@ -1,5 +1,5 @@
 .Home {
-    @media (max-width: 768px) {
+    @media (max-width: 820px) {
         align-items: center;
         gap: 50px;
     }
@@ -21,7 +21,7 @@
 
 
             .image {
-                @media (max-width: 768px) {
+                @media (max-width: 820px) {
                     width: 100px;
                     height: 100px;
                 }
@@ -38,7 +38,7 @@
                         place-items: center;
 
                         .circle {
-                            @media (max-width: 768px) {
+                            @media (max-width: 820px) {
                                 width: 30px;
                                 height: 30px;
                             }
@@ -58,7 +58,7 @@
                 }
 
                 img {
-                    @media (max-width: 768px) {
+                    @media (max-width: 820px) {
                         width: 100px;
                         height: 100px;
                     }
@@ -76,7 +76,7 @@
         }
 
         .list {
-            @media (max-width: 768px) {
+            @media (max-width: 820px) {
                 gap: 15px;
                 justify-content: space-between;
             }
@@ -89,7 +89,7 @@
         }
 
         .opacity {
-            @media (max-width: 768px) {
+            @media (max-width: 820px) {
                 width: 100px;
                 height: 100px;
             }
@@ -105,7 +105,7 @@
         }
 
         .title {
-            @media (max-width: 768px) {
+            @media (max-width: 820px) {
                 justify-content: space-between;
             }
 
@@ -115,7 +115,7 @@
             align-items: center;
 
             h1 {
-                @media (max-width: 768px) {
+                @media (max-width: 820px) {
                     font-size: 16px;
                 }
             }

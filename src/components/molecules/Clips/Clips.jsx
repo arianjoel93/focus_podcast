@@ -34,7 +34,7 @@ const Clips = (
     return (
         <>
             <audio ref={audioRef} src={podcast}></audio>
-            {screen > 768 ? (
+            {screen > 820 ? (
                 <>
                     <div className="clips">
                         <div className="coverClips" >

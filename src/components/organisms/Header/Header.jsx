@@ -18,7 +18,7 @@ const Header = () => {
     return (
         <header className="headerMain">
             {
-                screen > 768 ?
+                screen > 820 ?
                     (
                         <div className="maxWidth container">
                             <Link className="logoPodcast" to={"/"}>

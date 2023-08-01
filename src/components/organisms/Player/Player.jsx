@@ -173,7 +173,7 @@ const AudioPlayer = ({ audioUrl, title }) => {
 
     return (
         <>
-            {screen > 768 ? (
+            {screen > 820 ? (
                 <AudioPlayerWrapper>
                     <audio ref={audioRef} src={audioUrl}></audio>
                     <h3 style={{ color: '#ccc' }}>{title}</h3>
